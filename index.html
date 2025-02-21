@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/f43a7120ab.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .product-image {
+        max-width: 150px;
+        max-height: 150px;
+      }
+      .remove-btn {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+      .edit-btn {
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+      }
+    </style>
+
+    <!-- Additional CSS for product cards hover effect -->
+    <style>
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .card-img-top {
+        transition: transform 0.3s ease;
+        object-fit: contain;
+        height: 180px;
+      }
+
+      .product-card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">TheStore</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <form class="d-flex me-auto my-2" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+
+            <ul class="navbar-nav ms-auto me-2">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Account
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      data-bs-toggle="modal"
+                      data-bs-target="#loginModal"
+                    >
+                      Log In
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      data-bs-toggle="modal"
+                      data-bs-target="#signUpModal"
+                    >
+                      Sign Up
+                    </button>
+                  </li>
+                  <li>
+                    <a class="dropdown-item active" href="./pedidos.html"
+                      >My Orders</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="carrito.html">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="badge bg-primary">2</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Login Modal -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Log In</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="floatingInput"
+                      placeholder="name@example.com"
+                    />
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                  />
+                  <label for="floatingPassword">Password</label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary w-100 mt-4 mb-2">
+                Log In
+              </button>
+              <button type="button" class="btn btn-secondary w-100">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SignUp Modal -->
+      <div
+        class="modal fade"
+        id="signUpModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Sign Up</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between gap-2">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="name"
+                      />
+                      <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="name"
+                      />
+                      <label for="floatingInput">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="floatingInput"
+                      placeholder="name@example.com"
+                    />
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                  />
+                  <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating my-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Confirm Password"
+                  />
+                  <label for="floatingPassword">Confirm Password</label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary w-100 mb-2">
+                Sign Up
+              </button>
+              <button type="button" class="btn btn-secondary w-100">
+                Log In
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="b5-carousel-default">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner border" style="height: 70vh">
+            <div class="carousel-item active">
+              <img
+                src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="d-block w-100"
+                alt="for_sale"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="d-block w-100"
+                alt="fruit2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1591271300850-22d6784e0a7f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="d-block w-100"
+                alt="strawberries"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Improved Product Catalog Section -->
+      <section class="container py-5">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <h2 class="fw-bold">Featured Products</h2>
+            <p class="text-muted">
+              Discover our selection of organic and fresh products
+            </p>
+          </div>
+          <div
+            class="col-md-4 d-flex justify-content-md-end align-items-center"
+          >
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="categoryDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filter by Category
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                <li><a class="dropdown-item" href="#">All Products</a></li>
+                <li><a class="dropdown-item" href="#">Skincare</a></li>
+                <li><a class="dropdown-item" href="#">Organic Food</a></li>
+                <li><a class="dropdown-item" href="#">Wellness</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Product Card 1 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <div class="badge bg-success position-absolute end-0 m-2">
+                New
+              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Skincare</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star-half-alt text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Hydrating Face Cream</h5>
+                <p class="card-text text-muted small">
+                  Rich moisturizing formula with natural ingredients for all
+                  skin types.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$24.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <div class="badge bg-danger position-absolute end-0 m-2">
+                -15%
+              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Skincare</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="far fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Vitamin C Serum</h5>
+                <p class="card-text text-muted small">
+                  Brightening serum that helps reduce dark spots and improve
+                  skin tone.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <div>
+                    <span class="text-decoration-line-through text-muted me-1"
+                      >$39.99</span
+                    >
+                    <span class="fw-bold">$33.99</span>
+                  </div>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Body Care</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Lavender Body Lotion</h5>
+                <p class="card-text text-muted small">
+                  Calming body lotion with natural lavender oil to soothe and
+                  moisturize.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$19.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <div class="badge bg-info position-absolute end-0 m-2">
+                Bestseller
+              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Hair Care</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="far fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Argan Oil Hair Mask</h5>
+                <p class="card-text text-muted small">
+                  Deep conditioning treatment that repairs damaged hair and adds
+                  shine.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$27.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 5 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Face Care</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star-half-alt text-warning"></i>
+                    <i class="far fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Gentle Facial Cleanser</h5>
+                <p class="card-text text-muted small">
+                  pH-balanced formula that removes impurities without drying the
+                  skin.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$18.50</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 6 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <div class="badge bg-warning position-absolute end-0 m-2">
+                Limited
+              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Wellness</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Essential Oil Set</h5>
+                <p class="card-text text-muted small">
+                  Collection of six pure essential oils for aromatherapy and
+                  relaxation.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$45.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 7 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Makeup</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="far fa-star text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Natural Lip Balm Set</h5>
+                <p class="card-text text-muted small">
+                  Set of three tinted lip balms made with organic ingredients.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$16.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 8 -->
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm product-card">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/048/053/161/non_2x/a-pastel-paradise-of-skincare-products-png.png"
+                class="card-img-top p-3"
+                alt="Skincare Product"
+              />
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted small mb-0">Skincare</p>
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star-half-alt text-warning"></i>
+                  </div>
+                </div>
+                <h5 class="card-title">Anti-Aging Eye Cream</h5>
+                <p class="card-text text-muted small">
+                  Reduces the appearance of fine lines and dark circles around
+                  the eyes.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto"
+                >
+                  <span class="fw-bold">$29.99</span>
+                  <div>
+                    <button class="btn btn-sm btn-outline-primary me-1">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary">
+                      <i class="fas fa-shopping-cart me-1"></i>Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-5">
+          <nav aria-label="Product pagination">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a
+                  class="page-link"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mb-0 d-flex align-items-center">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h5>TheStore</h5>
+            <p>Tu tienda online de productos frescos y orgánicos</p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#" class="text-white"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5>Enlaces Rápidos</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-decoration-none text-white-50"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-white-50"
+                  >Productos</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-white-50"
+                  >Sobre nosotros</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-white-50"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Contacto</h5>
+            <address class="text-white-50">
+              <i class="fas fa-map-marker-alt me-2"></i> Av. Universidad 123,
+              Col. Centro<br />
+              <i class="fas fa-phone me-2"></i> (55) 1234-5678<br />
+              <i class="fas fa-envelope me-2"></i> info@thestore.com
+            </address>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center text-white-50">
+          <small>&copy; 2025 TheStore. Todos los derechos reservados.</small>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
